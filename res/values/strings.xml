@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">MyApp</string>
+    <string name="app_name">myApp</string>
     <string name="action_settings">Settings</string>
-    <string name="message">MESSAGE</string>
-    <string name="initialPressure">0</string>
-    <string name="buttonOn">On</string>
-    <string name="buttonOff">Off</string>
+    <string name="message">Press Start to begin</string>
+    <string name="initialPressure">Pressure: 0</string>
+    <string name="initialSpeed">Speed: 0</string>
+    <string name="buttonOn">Start</string>
+    <string name="buttonOff">Stop</string>
+    <string name="title_activity_results_message">Results</string>
+    <string name="message_results">Resultados</string>
+    <string name="buttonFb">Compartir</string>
 
 </resources>

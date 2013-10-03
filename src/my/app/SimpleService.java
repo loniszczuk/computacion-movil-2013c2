@@ -56,6 +56,7 @@ public class SimpleService extends Service implements SensorEventListener {
 		meassure.timestamp = event.timestamp;
 		meassure.value = event.values[0];
 		this.meassures.add(meassure);
+		//TODO imprimir nuevo meassure
 	}
 	
 	

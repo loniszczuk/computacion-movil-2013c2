@@ -15,7 +15,8 @@ public class MainActivity extends Activity{
 	private SimpleController controller;
 	
 	private BroadcastReceiver broadcastReceiver ;
-	
+
+    
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class MainActivity extends Activity{
         
         findViewById(R.id.buttonOn).setOnClickListener(controller);
         findViewById(R.id.buttonOff).setOnClickListener(controller);
+        
     }
 
 
@@ -40,6 +42,7 @@ public class MainActivity extends Activity{
     
     @Override
     protected void onResume() {
+    	super.onResume();
     	this.registerReceiver(this.broadcastReceiver, new IntentFilter(SimpleService.PRESSURE_SERVICE));
     }
 
