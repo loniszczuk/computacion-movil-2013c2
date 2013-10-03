@@ -54,14 +54,13 @@
     <Button android:id="@+id/buttonOff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/buttonOn"
-        android:layout_alignBottom="@id/buttonOn"
-        android:layout_alignLeft="@id/messageId"
-        android:layout_marginTop="60dp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:visibility="gone"
+        android:layout_marginTop="60dp"
         android:textColor="#ffffff"
+        android:visibility="gone"
         android:text="@string/buttonOff"
+        
         />
-    
+     
 </RelativeLayout>

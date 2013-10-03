@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.TextView;	
 
 public class SimpleView extends View {
 	
@@ -60,10 +60,6 @@ public class SimpleView extends View {
 	public void showResults(){
 		//TODO nueva activity -> mostrar grafico y publicar en fb
 		Intent intent = new Intent(this.activity, ResultsActivity.class);
-		//TODO Pasar info para el grafico
-		EditText editText = (EditText) findViewById(R.id.messageRes);
-		String message = editText.getText().toString();
-		intent.putExtra(EXTRA_MESSAGE, message);
 		//Empiezo la nueva activity
 		this.activity.startActivity(intent);
 		

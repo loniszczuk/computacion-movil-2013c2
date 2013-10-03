@@ -22,12 +22,12 @@ public class ResultsActivity extends Activity{
         controller = new ResultsController(model, view);
 
         Intent intent = getIntent();
-        String message = intent.getStringExtra(SimpleView.EXTRA_MESSAGE);
+        //String message = intent.getStringExtra(SimpleView.EXTRA_MESSAGE);
 
         // Create the text view
         TextView textView = new TextView(this);
         textView.setTextSize(40);
-        textView.setText(message);
+        //textView.setText(message);
 
         // Set the text view as the activity layout
         setContentView(textView);
@@ -50,6 +50,7 @@ public class ResultsActivity extends Activity{
 
     @Override
     protected void onPause() {
+    	super.onPause();
     }
     
     

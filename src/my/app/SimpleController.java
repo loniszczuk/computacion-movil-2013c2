@@ -23,7 +23,7 @@ public class SimpleController implements OnClickListener {
 			this.model.turnOn();
 			this.view.switchButton();
 		} else if (this.view.getButtonOff() == view) {
-			this.model.turnOff();
+			//this.model.turnOff();
 			this.view.showResults();
 
 		}
