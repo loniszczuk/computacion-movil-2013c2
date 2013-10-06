@@ -22,6 +22,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+    
+	    <service
+	        android:name="my.app.SimpleService"
+	        android:label="@string/pressure_service" >
+	    </service>
     </application>
-
 </manifest>

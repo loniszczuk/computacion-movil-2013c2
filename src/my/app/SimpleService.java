@@ -1,49 +1,70 @@
 package my.app;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.SortedMap;
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
-import android.app.IntentService;
 import android.app.Service;
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.os.Binder;
 import android.os.IBinder;
+import android.util.Log;
 
 public class SimpleService extends Service implements SensorEventListener {
 
 	public static final String PRESSURE_SERVICE = "PRESSURE_SERVICE";
-
+	public static final String PRESSURE_NOTIFICATION = "PRESSURE_NOTIFICATION";
 	public static final String PRESSURE = "PRESSURE";
+	public static final String TIMESTAMP = "TIMESTAMP";
 	
-	private long startTimestamp;
-	private List<Meassure> meassures = new ArrayList<Meassure>();
-	private MyServiceBinder binder = new MyServiceBinder();
+	private Timer t;
+		
+	public SimpleService() {
+	}
 	
-	
+	@Override
+	public void onCreate() {
+		Log.v("", "onCreate service");
+	}
 	
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
+		
+		Log.v("", "onStartCommand service");
+		
 		SensorManager s = (SensorManager) getSystemService(SENSOR_SERVICE);
 		Sensor sensor = s.getDefaultSensor(Sensor.TYPE_PRESSURE);
 		
 		s.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
-
-		this.startTimestamp = System.currentTimeMillis();
 		
+		t = new Timer();
+		t.schedule(new TimerTask() {
+			Random r = new Random();
+			
+			@Override
+			public void run() {
+				Meassure meassure = new Meassure();
+				meassure.timestamp = System.currentTimeMillis();
+				meassure.value = r.nextInt(2000);
+				SimpleService.this.sendNotification(meassure);
+			}
+		}, 0, 1000);
+
 		return START_STICKY;
 	}
 	
 	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		t.cancel();
+	}
+	
+	@Override
 	public IBinder onBind(Intent intent) {
-		return binder;
+		return null;
 	} 
 	
 	@Override
@@ -55,20 +76,17 @@ public class SimpleService extends Service implements SensorEventListener {
 		Meassure meassure = new Meassure();
 		meassure.timestamp = event.timestamp;
 		meassure.value = event.values[0];
-		this.meassures.add(meassure);
+		sendNotification(meassure);
 	}
 	
-	
-	public Meassure getLastMeassure() {
-		return this.meassures.get(this.meassures.size()-1);
+	private void sendNotification(Meassure m) {
+		Intent intent = new Intent(PRESSURE_NOTIFICATION); 
+		intent.putExtra(PRESSURE,m.value);
+		intent.putExtra(TIMESTAMP, m.timestamp);
+		sendBroadcast(intent);
 	}
 	
-	public class MyServiceBinder extends Binder {
-		public SimpleService getService() {
-			return SimpleService.this;
-		}
-	}
-	
+			
 	public static class Meassure {
 		public long timestamp;
 		public float value;

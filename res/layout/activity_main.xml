@@ -9,41 +9,21 @@
     tools:context=".MainActivity" >
 
     <TextView
-        android:id="@+id/messageId"
+        android:id="@+id/altitudeViewId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="@string/message"
+        android:text="@string/initialAltitude"
         tools:context=".MainActivity" />
 
-    <TextView
-        android:id="@+id/pressureViewId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/initialPressure"
-        tools:context=".MainActivity" />
-    
-    
-    <Button android:id="@+id/buttonOn"
+    <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="60dp"
-        android:layout_marginLeft="40dp"
-        android:text="@string/buttonOn"
-        />
-
-    <Button android:id="@+id/buttonOff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/buttonOn"
-        android:layout_alignBottom="@id/buttonOn"
-        android:layout_alignLeft="@id/messageId"
-        android:layout_marginLeft="60dp"
-        android:text="@string/buttonOff"
-        />
-    
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="82dp"
+        android:text="@string/button" />
+        
 </RelativeLayout>

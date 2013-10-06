@@ -2,6 +2,7 @@ package my.app;
 
 import android.app.Activity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class SimpleView extends View {
@@ -9,8 +10,9 @@ public class SimpleView extends View {
 	private final SimpleModel model;
 	private final Activity activity;
 	
-	private final TextView textView;
-	private final TextView pressureView;
+	private final Button button;
+	private final TextView altitudeView;
+	
 	
 	public SimpleView(Activity a, SimpleModel m) {
 		super(a, null);
@@ -18,25 +20,24 @@ public class SimpleView extends View {
 		this.activity = a;
 		
 		activity.setContentView(R.layout.activity_main);
-		textView = (TextView) activity.findViewById(R.id.messageId);
-		pressureView = (TextView) activity.findViewById(R.id.pressureViewId);
+		button = (Button) activity.findViewById(R.id.button);
+		altitudeView = (TextView) activity.findViewById(R.id.altitudeViewId);
 	}
 
-	public void renderOnOff() {
-		textView.setText(model.isOn()? "ON": "OFF");
+	public View getButton() {
+		return this.button;
+	}
+	
+	public MainActivity getActivity() {
+		return (MainActivity) this.activity;
+	}
+	
+	public void renderStartStop() {
+		button.setText(model.isStarted() ? "STOP" : "START");
 	}
 
-	public View getButtonOn() {
-		return activity.findViewById(R.id.buttonOn);
-	}
-
-	public View getButtonOff() {
-		return activity.findViewById(R.id.buttonOff);
-	}
-
-	public void renderPressure(float p) {
-		pressureView.setText(String.valueOf(p));
-		
+	public void renderAltitude() {
+		altitudeView.setText("Altitud actual: " + String.valueOf(model.getCurrentAltitude()));
 	}
 
 }

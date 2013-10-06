@@ -1,36 +1,51 @@
 package my.app;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 
 public class SimpleController implements OnClickListener {
 
+	private final Activity activity;
 	private final SimpleView view;
 	private final SimpleModel model;
 	
-	public SimpleController(SimpleModel m, SimpleView v) {
+	public SimpleController(Activity a, SimpleModel m, SimpleView v) {
+		this.activity = a;
 		this.model = m;
 		this.view = v;
 	}
 
 	@Override
 	public void onClick(View view) {
-		if (this.view.getButtonOn() == view) {
-			this.model.turnOn();
-		} else if (this.view.getButtonOff() == view) {
-			this.model.turnOff();
-		}
-		
-		this.view.renderOnOff();
+		if (this.view.getButton() == view) {
+			this.model.startStop();
+			this.view.renderStartStop();
+			Log.v("", "onClick");
+			if (this.model.isStarted()) {
+				Log.v("","start service");
+				this.startPressureService();
+			} else {
+				Log.v("", "stop service");
+				this.endPressureService();
+			}
+		} 
 	}
 	
-	
-	public void onPressureChanged(Context context, Intent intent) {
-		float p = intent.getExtras().getFloat(SimpleService.PRESSURE);
-		
-		this.view.renderPressure(p);
+	public void onAltitudeChanged() {
+		this.view.renderAltitude();
 	}
+	
+	public void startPressureService() {
+		this.activity.startService(new Intent(this.activity, SimpleService.class));
+	}
+
+
+	public void endPressureService() {
+		this.activity.stopService(new Intent(this.activity, SimpleService.class));
+	}
+
 	
 }
