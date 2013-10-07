@@ -8,25 +8,39 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:id="@+id/messageRes"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/message_results"
-        android:textColor="#ffffff"
-        tools:context=".MainActivity" />
-
-   
-    <Button android:id="@+id/buttonFb"
+ 
+    <ImageView
+        android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
+        android:contentDescription="@string/message_results"
+        android:src="@drawable/ej_chart" />
+       
+   
+ <Button 
+        android:id="@+id/buttonFb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/imageView1"
+        android:layout_marginTop="10dp"
         android:textColor="#ffffff"
         android:text="@string/buttonFb"/>
-   
+ 
+    <Button 
+        android:id="@+id/buttonMap"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView1"
+        android:layout_toRightOf="@id/buttonFb"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:textColor="#ffffff"
+        android:text="@string/buttonMap"/>
+
+       
+       
 </RelativeLayout>

@@ -1,4 +1,4 @@
-package my.app;
+package flight.recorder;
 
 public class SimpleModel {
 

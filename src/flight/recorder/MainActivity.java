@@ -1,5 +1,6 @@
-package my.app;
+package flight.recorder;
 
+import flight.recorder.R;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.BroadcastReceiver;

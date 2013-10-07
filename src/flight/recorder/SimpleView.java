@@ -1,5 +1,6 @@
-package my.app;
+package flight.recorder;
 
+import flight.recorder.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
@@ -33,7 +34,6 @@ public class SimpleView extends View {
 	}
 
 	public View getButtonOn() {
-		//mostrar mediciones
 		return activity.findViewById(R.id.buttonOn);
 	}
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="my.app"
+    package="flight.recorder"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="my.app.MainActivity"
+            android:name="flight.recorder.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,12 +23,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="my.app.ResultsActivity"
+            android:name="flight.recorder.ResultsActivity"
             android:label="@string/title_activity_results_message"
-            android:parentActivityName="my.app.MainActivity" >
+            android:parentActivityName="flight.recorder.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="my.app.MainActivity" />
+                android:value="flight.recorder.MainActivity" />
         </activity>
     </application>
 

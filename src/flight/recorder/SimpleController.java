@@ -1,4 +1,4 @@
-package my.app;
+package flight.recorder;
 
 import android.content.Context;
 import android.content.Intent;
