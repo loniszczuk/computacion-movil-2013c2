@@ -1,7 +1,6 @@
-package my.app;
+package flight.recorder;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
@@ -32,7 +31,6 @@ public class SimpleView extends View {
 	}
 
 	public View getButtonOn() {
-		//mostrar mediciones
 		return activity.findViewById(R.id.buttonOn);
 	}
 
@@ -46,7 +44,7 @@ public class SimpleView extends View {
 	}
 	
 	public void renderSpeed() {
-		altitudeView.setText("Altitud actual: " + String.valueOf(model.getCurrentSpeed()));
+		speedView.setText("Velocidad actual: " + String.valueOf(model.getCurrentSpeed()));
 	}
 	
 	public void switchButton(){

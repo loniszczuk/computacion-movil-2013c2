@@ -1,4 +1,4 @@
-package my.app;
+package flight.recorder;
 
 import java.util.Random;
 import java.util.Timer;

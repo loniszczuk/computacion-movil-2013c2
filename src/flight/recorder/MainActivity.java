@@ -1,10 +1,11 @@
-package my.app;
+package flight.recorder;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
-import my.app.SimpleService.Meassure;
+import flight.recorder.SimpleService.Meassure;
 
+import flight.recorder.R;
 import android.os.Bundle;
 import android.os.Handler;
 import android.app.Activity;
@@ -26,6 +27,8 @@ public class MainActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
+        Log.v("", "Creating MainActivity");
+        
         model = new SimpleModel(); 
         view = new SimpleView(this, model);
         controller = new SimpleController(this, model, view);
@@ -38,27 +41,7 @@ public class MainActivity extends Activity{
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
-        
-        
-        final Runnable updateGUIRunnable = new Runnable() {        	
-        	public void run() {
-        		Log.v("", "Updating view");
-        		MainActivity.this.view.renderAltitude();
-        	}
-        };
-        
-        final Handler myHandler = new Handler();
-
-        
-        Timer updateGUITimer = new Timer();
-        updateGUITimer.schedule( new TimerTask() {
-			
-			@Override
-			public void run() {
-				myHandler.post(updateGUIRunnable);
-			}
-		}, 0, 1000);
-        
+                
         return true;
     }
     

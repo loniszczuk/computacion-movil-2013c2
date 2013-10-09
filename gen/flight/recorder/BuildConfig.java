@@ -1,5 +1,5 @@
 /** Automatically generated file. DO NOT MODIFY */
-package my.app;
+package flight.recorder;
 
 public final class BuildConfig {
     public final static boolean DEBUG = true;

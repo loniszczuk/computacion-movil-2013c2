@@ -1,19 +1,17 @@
-package my.app;
+package flight.recorder;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import android.util.Log;
 
-
-import my.app.SimpleService.Meassure;
+import flight.recorder.SimpleService.Meassure;
 
 
 public class SimpleModel {
 
+	private long lastUpdate = 0;
 	private Boolean started = Boolean.FALSE;	
-	private long startTimestamp;
-	private long lastTimestamp;
 	private List<Double> altitudes = new ArrayList<Double>();
 	
 	public Boolean isStarted() {
@@ -21,10 +19,9 @@ public class SimpleModel {
 	}
 	
 	public void start() {
-		if (this.started) {
+		if (!this.started) {
+			this.lastUpdate = System.currentTimeMillis();
 			this.started = true;
-			this.startTimestamp = System.currentTimeMillis();
-			this.lastTimestamp = this.startTimestamp;
 		} 
 	}
 
@@ -46,17 +43,19 @@ public class SimpleModel {
 		return 30.0;
 	}
 	
-	public long getStartTimestamp() {
-		return this.startTimestamp;
-	}
-
 	public void registerNewPressure(Meassure meassure) {
 		Log.v("", "New pressure registered");
 		long current = meassure.timestamp;
-		Double altitude = fromPressureToAltitude(meassure.value);
-		for(long i = this.lastTimestamp; i < current; i += 1000) {
-			// for each second between last timestamp and now
-			altitudes.add(altitude);
+		Log.v("", "current timestamp " + current);
+		if (this.lastUpdate + 1000 < current) {
+			Log.v("", "not too old: last " + lastUpdate + " current " + current);
+			Double altitude = fromPressureToAltitude(meassure.value);
+			for(long i = this.lastUpdate+1000; i < current; i += 1000) {
+//				Log.v("", "for cicle");
+				// for each second between last timestamp and now
+				altitudes.add(altitude);
+			}
+			this.lastUpdate = current;
 		}
 	}
 	
