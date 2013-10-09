@@ -2,11 +2,13 @@ package flight.recorder;
 
 import android.os.AsyncTask;
 
-public class SaveResultsTask extends AsyncTask<Params, Progress, Result>{
-
+public class SaveResultsTask extends AsyncTask<ResultsController, Void, String>{
+ 
+	
 	@Override
-	protected Result doInBackground(Params... params) {
-		// TODO Auto-generated method stub
+	protected String doInBackground(ResultsController... params) {
+		ResultsController controller = params[0];
+		controller.getModel().saveResults();		
 		return null;
 	}
 

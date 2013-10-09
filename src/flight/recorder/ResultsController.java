@@ -36,5 +36,9 @@ public class ResultsController implements OnClickListener {
 			this.view.showMap();
 		}
 	}
+
+	public ResultsModel getModel() {
+		return this.model;
+	}
 	
 }

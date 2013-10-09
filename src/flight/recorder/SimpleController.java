@@ -1,5 +1,6 @@
 package flight.recorder;
 
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -82,9 +83,20 @@ public class SimpleController implements OnClickListener {
 	public void showResults(){
 		//TODO nueva activity -> mostrar grafico y publicar en fb
 		Intent intent = new Intent(this.activity, ResultsActivity.class);
+		intent.putExtra("ALTITUDES", toArray(this.model.getAltitudes()));
+		intent.putExtra("SPEEDS", toArray(this.model.getSpeeds()));
 		//Empiezo la nueva activity
 		this.activity.startActivity(intent);
 		
+	}
+
+	private double[] toArray(List<Double> altitudes) {
+		double[] ret = new double[altitudes.size()];
+		int i = 0;
+		for(double d : altitudes){
+			ret[i++] = d;
+		}
+		return ret;
 	}
 
 

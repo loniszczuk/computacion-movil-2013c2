@@ -2,6 +2,7 @@ package flight.recorder;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import android.util.Log;
 
@@ -13,6 +14,7 @@ public class SimpleModel {
 	private long lastUpdate = 0;
 	private Boolean started = Boolean.FALSE;	
 	private List<Double> altitudes = new ArrayList<Double>();
+	private List<Double> speeds = new ArrayList<Double>();
 	
 	public Boolean isStarted() {
 		return this.started;
@@ -40,11 +42,17 @@ public class SimpleModel {
 	}
 
 	public double getCurrentSpeed() {
-		return 30.0;
+		return speeds.isEmpty()? 0 : speeds.get(altitudes.size() - 1);
 	}
+
+	public List<Double> getSpeeds() {
+		return this.speeds;
+	}
+
 	
 	public void registerNewPressure(Meassure meassure) {
 		Log.v("", "New pressure registered");
+		Random r = new Random();
 		long current = meassure.timestamp;
 		Log.v("", "current timestamp " + current);
 		if (this.lastUpdate + 1000 < current) {
@@ -54,6 +62,7 @@ public class SimpleModel {
 //				Log.v("", "for cicle");
 				// for each second between last timestamp and now
 				altitudes.add(altitude);
+				speeds.add(Double.valueOf(r.nextInt(60)));
 			}
 			this.lastUpdate = current;
 		}
