@@ -20,20 +20,30 @@ public class SimpleModel {
 		return this.started;
 	}
 	
-	public void startStop() {
-		this.started = !this.started;
+	public void start() {
 		if (this.started) {
+			this.started = true;
 			this.startTimestamp = System.currentTimeMillis();
 			this.lastTimestamp = this.startTimestamp;
 		} 
 	}
-	
+
+	public void stop() {
+		if (this.started) {
+			this.started = false;
+		} 
+	}
+
 	public double getCurrentAltitude() {
 		return altitudes.isEmpty()? 0 : altitudes.get(altitudes.size() - 1);
 	}
 	
 	public List<Double> getAltitudes() { 
 		return this.altitudes;
+	}
+
+	public double getCurrentSpeed() {
+		return 30.0;
 	}
 	
 	public long getStartTimestamp() {
@@ -53,4 +63,5 @@ public class SimpleModel {
 	private double fromPressureToAltitude(double pressure) {
 		return 44.3308 - 4.94654 * Math.pow(pressure, 0.190263);
 	}
+
 }

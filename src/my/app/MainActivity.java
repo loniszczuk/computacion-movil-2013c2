@@ -12,6 +12,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.util.Log;
 import android.view.Menu;
 
 public class MainActivity extends Activity{
@@ -20,8 +21,7 @@ public class MainActivity extends Activity{
 	private SimpleView view;
 	private SimpleController controller;
 	private PressureBroadcastReceiver pressureReceiver;
-	
-	
+		
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +30,8 @@ public class MainActivity extends Activity{
         view = new SimpleView(this, model);
         controller = new SimpleController(this, model, view);
         pressureReceiver = new PressureBroadcastReceiver(model);
-        this.view.getButton().setOnClickListener(controller);
+        findViewById(R.id.buttonOn).setOnClickListener(controller);
+        findViewById(R.id.buttonOff).setOnClickListener(controller);
     }
 
 
@@ -41,6 +42,7 @@ public class MainActivity extends Activity{
         
         final Runnable updateGUIRunnable = new Runnable() {        	
         	public void run() {
+        		Log.v("", "Updating view");
         		MainActivity.this.view.renderAltitude();
         	}
         };

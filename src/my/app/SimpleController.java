@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.EditText;
 
 public class SimpleController implements OnClickListener {
 
@@ -20,18 +21,17 @@ public class SimpleController implements OnClickListener {
 
 	@Override
 	public void onClick(View view) {
-		if (this.view.getButton() == view) {
-			this.model.startStop();
-			this.view.renderStartStop();
-			Log.v("", "onClick");
-			if (this.model.isStarted()) {
-				Log.v("","start service");
-				this.startPressureService();
-			} else {
-				Log.v("", "stop service");
-				this.endPressureService();
-			}
-		} 
+		if (this.view.getButtonOn() == view) {
+			this.model.start();
+			this.view.switchButton();
+			Log.v("","Start service");
+			this.startPressureService();
+		} else if (this.view.getButtonOff() == view) {
+			Log.v("", "Stop service");
+			this.model.stop();
+			this.endPressureService();
+			this.showResults();
+		}
 	}
 	
 	public void onAltitudeChanged() {
@@ -46,6 +46,15 @@ public class SimpleController implements OnClickListener {
 	public void endPressureService() {
 		this.activity.stopService(new Intent(this.activity, SimpleService.class));
 	}
+	
+	public void showResults(){
+		//TODO nueva activity -> mostrar grafico y publicar en fb
+		Intent intent = new Intent(this.activity, ResultsActivity.class);
+		//Empiezo la nueva activity
+		this.activity.startActivity(intent);
+		
+	}
+
 
 	
 }

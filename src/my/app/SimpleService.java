@@ -58,8 +58,8 @@ public class SimpleService extends Service implements SensorEventListener {
 	
 	@Override
 	public void onDestroy() {
-		super.onDestroy();
 		t.cancel();
+		super.onDestroy();
 	}
 	
 	@Override
