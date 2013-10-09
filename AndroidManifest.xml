@@ -30,6 +30,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="flight.recorder.MainActivity" />
         </activity>
+        <activity
+            android:name="flight.recorder.FacebookActivity"
+            android:label="@string/title_activity_facebook_message"
+            android:parentActivityName="flight.recorder.ResultsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="flight.recorder.ResultsActivity" />
+        </activity>
 	    <service
 	        android:name="flight.recorder.SimpleService"
 	        android:label="@string/pressure_service" >

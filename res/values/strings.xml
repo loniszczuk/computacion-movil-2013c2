@@ -13,4 +13,6 @@
     <string name="message_results">Results Chart</string>
     <string name="buttonFb">Share in Fb</string>
     <string name="buttonMap">Show Map</string>
+    <string name="title_activity_facebook_message">FlightRecorder > Login Fb</string>
+    <string name="buttonLogin">Login</string>
 </resources>
