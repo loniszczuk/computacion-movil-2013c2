@@ -8,39 +8,40 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
- 
-    <ImageView
-        android:id="@+id/imageView1"
+
+    <LinearLayout
+        android:id="@+id/graph1"
+        android:layout_width="fill_parent"
+        android:layout_height="250dip"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonGraph"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:contentDescription="@string/message_results"
-        android:src="@drawable/ej_chart" />
-       
-   
- <Button 
+        android:layout_marginBottom="28dp"
+        android:text="@string/buttonGraph" />
+
+    <Button
+        android:id="@+id/buttonMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonGraph"
+        android:layout_alignLeft="@+id/graph1"
+        android:text="@string/buttonMap"
+        android:textColor="#ffffff" />
+
+    <Button
         android:id="@+id/buttonFb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/imageView1"
-        android:layout_marginTop="10dp"
-        android:textColor="#ffffff"
-        android:text="@string/buttonFb"/>
- 
-    <Button 
-        android:id="@+id/buttonMap"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/imageView1"
-        android:layout_toRightOf="@id/buttonFb"
+        android:layout_alignBaseline="@+id/buttonMap"
+        android:layout_alignBottom="@+id/buttonMap"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="10dp"
-        android:textColor="#ffffff"
-        android:text="@string/buttonMap"/>
+        android:text="@string/buttonFb"
+        android:textColor="#ffffff" />
 
-       
-       
 </RelativeLayout>

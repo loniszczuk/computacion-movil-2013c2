@@ -3,11 +3,18 @@ package flight.recorder;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.GraphViewSeries;
+import com.jjoe64.graphview.GraphView.GraphViewData;
+import com.jjoe64.graphview.LineGraphView;
+
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class ResultsActivity extends Activity{
@@ -16,7 +23,7 @@ public class ResultsActivity extends Activity{
 	private ResultsView view;
 	private ResultsController controller;
 
-	ImageView image;
+//	ImageView image;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +49,19 @@ public class ResultsActivity extends Activity{
         textView.setTextSize(40);
         //textView.setText(message);
 
-		image = (ImageView) findViewById(R.id.imageView1);
-		image.setImageResource(R.drawable.ej_chart);
+        GraphViewSeries altitudSeries = createSerie(altitudes);
+        GraphView altitudesGraph = new LineGraphView(this, "Altitudes");
+        altitudesGraph.addSeries( altitudSeries );
+        LinearLayout layout = (LinearLayout) findViewById(R.id.graph1);
+		layout.addView(altitudesGraph);
+        
+//		image = (ImageView) findViewById(R.id.imageView1);
+	//	image.setImageResource(R.drawable.ej_chart);
 
 
         findViewById(R.id.buttonFb).setOnClickListener(controller);
         findViewById(R.id.buttonMap).setOnClickListener(controller);
+        
     }
 
 
@@ -59,6 +73,14 @@ public class ResultsActivity extends Activity{
 		return ret;
 	}
 
+    private GraphViewSeries createSerie(double[] data){
+    	GraphViewData[] data_time = new GraphViewData[data.length];  
+		for(int i = 0; i < data.length; i++){
+			data_time[i] = new GraphViewData(i, data[i]);
+		}
+    		
+		return new GraphViewSeries(data_time);
+    }
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

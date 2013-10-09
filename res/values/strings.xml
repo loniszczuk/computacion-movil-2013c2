@@ -11,8 +11,9 @@
     <string name="pressure_service">Servicio de presion</string>
     <string name="title_activity_results_message">FlightRecorder > Results</string>
     <string name="message_results">Results Chart</string>
-    <string name="buttonFb">Share in Fb</string>
+    <string name="buttonFb">Share in Facebook</string>
     <string name="buttonMap">Show Map</string>
     <string name="title_activity_facebook_message">FlightRecorder > Login Fb</string>
     <string name="buttonLogin">Login</string>
+    <string name="buttonGraph">Graph</string>
 </resources>
