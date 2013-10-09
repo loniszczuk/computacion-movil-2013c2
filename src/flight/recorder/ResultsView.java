@@ -26,6 +26,15 @@ public class ResultsView extends View {
 
 	}
 
+	public View getButtonMap() {
+		return activity.findViewById(R.id.buttonMap);
+	}
+	
+	public View getButtonFb() {
+		return activity.findViewById(R.id.buttonFb);
+	}
+
+	
 	public void showMap() {
         //Google Maps
 		double latitud = -34.5430098;
@@ -35,8 +44,12 @@ public class ResultsView extends View {
 		activity.startActivity(intent);
 	}
 
-	public View getButtonMap() {
-		return activity.findViewById(R.id.buttonMap);
+	
+	public void connectFb(){
+		Intent fb_intent = new Intent(this.activity, FacebookActivity.class);
+		//Empiezo la nueva activity
+		this.activity.startActivity(fb_intent);
+	
 	}
 
 	
