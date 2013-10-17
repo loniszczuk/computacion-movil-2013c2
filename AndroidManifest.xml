@@ -5,12 +5,14 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="18"
-        android:targetSdkVersion="18" />
+        android:minSdkVersion="16"
+        android:targetSdkVersion="16" />
     
-	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.INTERNET" ></uses-permission>
+	<uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
 	
     <application
+        android:debuggable="true" 
         android:allowBackup="true"
         android:icon="@drawable/parachute"
         android:label="@string/app_name"
@@ -39,6 +41,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="flight.recorder.ResultsActivity" />
+        </activity>
+        <activity
+            android:name="flight.recorder.CallActivity"
+            android:label="@string/title_activity_facebook_message"
+            android:parentActivityName="flight.recorder.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="flight.recorder.MainActivity" />
         </activity>
 	    <service
 	        android:name="flight.recorder.SimpleService"

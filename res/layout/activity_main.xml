@@ -63,4 +63,14 @@
         
         />
      
+    <Button android:id="@+id/buttonCall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/speedViewId"
+        android:textColor="#ffffff"
+        android:text="@string/buttonCall"
+        
+        />
 </RelativeLayout>

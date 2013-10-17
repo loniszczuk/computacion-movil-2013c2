@@ -1,20 +1,16 @@
 package flight.recorder;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
-import flight.recorder.SimpleService.Meassure;
-
-import flight.recorder.R;
-import android.os.Bundle;
-import android.os.Handler;
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.Uri;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import flight.recorder.SimpleService.Meassure;
 
 public class MainActivity extends Activity{
 	
@@ -35,6 +31,8 @@ public class MainActivity extends Activity{
         pressureReceiver = new PressureBroadcastReceiver(model);
         findViewById(R.id.buttonOn).setOnClickListener(controller);
         findViewById(R.id.buttonOff).setOnClickListener(controller);
+        findViewById(R.id.buttonCall).setOnClickListener(controller);
+        
     }
 
 
@@ -44,6 +42,7 @@ public class MainActivity extends Activity{
                 
         return true;
     }
+    
     
     @Override
     protected void onResume() {

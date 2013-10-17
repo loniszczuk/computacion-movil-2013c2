@@ -5,12 +5,13 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.EditText;
 
 public class SimpleController implements OnClickListener {
 
@@ -39,6 +40,8 @@ public class SimpleController implements OnClickListener {
 			this.model.stop();
 			this.cancelUpdateView();
 			this.showResults();
+		} else if(this.view.getButtonCall() == view){
+			this.call();
 		}
 	}
 	
@@ -90,6 +93,16 @@ public class SimpleController implements OnClickListener {
 		
 	}
 
+	private void call() {
+        try {
+            Intent callIntent = new Intent(Intent.ACTION_CALL);
+            callIntent.setData(Uri.parse("tel:911"));
+            this.activity.startActivity(callIntent);
+        } catch (ActivityNotFoundException e) {
+            Log.e("helloandroid dialing example", "Call failed", e);
+        }
+    }
+	
 	private double[] toArray(List<Double> altitudes) {
 		double[] ret = new double[altitudes.size()];
 		int i = 0;

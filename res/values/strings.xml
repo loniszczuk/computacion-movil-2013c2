@@ -8,6 +8,7 @@
     <string name="initialSpeed">Speed: 0</string>
     <string name="buttonOn">Start</string>
     <string name="buttonOff">Stop</string>
+    <string name="buttonCall">Emergency Call</string>
     <string name="pressure_service">Servicio de presion</string>
     <string name="title_activity_results_message">FlightRecorder > Results</string>
     <string name="message_results">Results Chart</string>

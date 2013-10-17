@@ -39,6 +39,10 @@ public class SimpleView extends View {
 		return activity.findViewById(R.id.buttonOff);
 	}
 
+	public View getButtonCall() {
+		return activity.findViewById(R.id.buttonCall);
+	}
+
 	public void renderAltitude() {
 		altitudeView.setText("Altitud actual: " + String.valueOf(model.getCurrentAltitude()));
 	}

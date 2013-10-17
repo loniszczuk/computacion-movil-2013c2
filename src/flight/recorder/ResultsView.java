@@ -14,7 +14,7 @@ public class ResultsView extends View {
 	private final Activity activity;
 	
 	private final TextView textView;
-	//TODO grafico
+
 
 	public ResultsView(Activity a, ResultsModel m) {
 		super(a, null);
