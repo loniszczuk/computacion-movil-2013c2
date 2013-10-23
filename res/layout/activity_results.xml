@@ -12,36 +12,36 @@
     <LinearLayout
         android:id="@+id/graph1"
         android:layout_width="fill_parent"
-        android:layout_height="250dip"
+        android:layout_height="200dip"
         android:orientation="vertical" >
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/graph2"
+        android:layout_width="fill_parent"
+        android:layout_height="200dip"
+        android:layout_below="@id/graph1"
+        android:orientation="vertical">
+    </LinearLayout>
+    
     <Button
-        android:id="@+id/buttonGraph"
+        android:id="@+id/buttonFb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="28dp"
-        android:text="@string/buttonGraph" />
+        android:layout_alignBottom="@+id/buttonMap"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/buttonMap"
+        android:text="@string/buttonFb"
+        android:textColor="#ffffff" />
 
     <Button
         android:id="@+id/buttonMap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonGraph"
-        android:layout_alignLeft="@+id/graph1"
+        android:layout_alignLeft="@+id/graph2"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="28dp"
         android:text="@string/buttonMap"
-        android:textColor="#ffffff" />
-
-    <Button
-        android:id="@+id/buttonFb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/buttonMap"
-        android:layout_alignBottom="@+id/buttonMap"
-        android:layout_alignParentRight="true"
-        android:text="@string/buttonFb"
         android:textColor="#ffffff" />
 
 </RelativeLayout>

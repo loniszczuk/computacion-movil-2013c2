@@ -7,10 +7,11 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GraphViewSeries;
 import com.jjoe64.graphview.GraphView.GraphViewData;
 import com.jjoe64.graphview.LineGraphView;
-
+import com.jjoe64.graphview.GraphViewSeries.GraphViewSeriesStyle;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.widget.ImageView;
@@ -49,12 +50,25 @@ public class ResultsActivity extends Activity{
         textView.setTextSize(40);
         //textView.setText(message);
 
-        GraphViewSeries altitudSeries = createSerie(altitudes);
+          
+        
+        //Generate Altitud Graphic
+        GraphViewSeriesStyle styleA = new GraphViewSeriesStyle(Color.rgb(200, 100, 0), 3);
+        GraphViewSeries altitudSeries = createSerie(altitudes, styleA);
         GraphView altitudesGraph = new LineGraphView(this, "Altitudes");
         altitudesGraph.addSeries( altitudSeries );
-        LinearLayout layout = (LinearLayout) findViewById(R.id.graph1);
-		layout.addView(altitudesGraph);
+        altitudesGraph.getGraphViewStyle().setTextSize(20);
+        LinearLayout layoutA = (LinearLayout) findViewById(R.id.graph1);
+		layoutA.addView(altitudesGraph);
         
+		//Generate Speed Graphic
+		GraphViewSeriesStyle styleS = new GraphViewSeriesStyle(Color.rgb(100, 200, 50), 3);
+		GraphViewSeries speedSeries = createSerie(speeds, styleS);
+		GraphView speedsGraph = new LineGraphView(this, "Speeds");
+		speedsGraph.addSeries(speedSeries);
+		speedsGraph.getGraphViewStyle().setTextSize(15);
+		LinearLayout layoutS = (LinearLayout) findViewById(R.id.graph2);
+		layoutS.addView(speedsGraph);
 //		image = (ImageView) findViewById(R.id.imageView1);
 	//	image.setImageResource(R.drawable.ej_chart);
 
@@ -73,13 +87,13 @@ public class ResultsActivity extends Activity{
 		return ret;
 	}
 
-    private GraphViewSeries createSerie(double[] data){
+    private GraphViewSeries createSerie(double[] data, GraphViewSeriesStyle style){
     	GraphViewData[] data_time = new GraphViewData[data.length];  
 		for(int i = 0; i < data.length; i++){
 			data_time[i] = new GraphViewData(i, data[i]);
 		}
     		
-		return new GraphViewSeries(data_time);
+		return new GraphViewSeries("", style, data_time);
     }
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -28,13 +28,13 @@ public final class R {
     public static final class id {
         public static final int action_settings=0x7f08000b;
         public static final int buttonCall=0x7f080006;
-        public static final int buttonFb=0x7f08000a;
-        public static final int buttonGraph=0x7f080008;
+        public static final int buttonFb=0x7f080009;
         public static final int buttonLogin=0x7f080000;
-        public static final int buttonMap=0x7f080009;
+        public static final int buttonMap=0x7f08000a;
         public static final int buttonOff=0x7f080005;
         public static final int buttonOn=0x7f080004;
         public static final int graph1=0x7f080007;
+        public static final int graph2=0x7f080008;
         public static final int messageId=0x7f080001;
         public static final int pressureViewId=0x7f080002;
         public static final int speedViewId=0x7f080003;
