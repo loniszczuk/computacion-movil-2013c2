@@ -17,4 +17,6 @@
     <string name="title_activity_facebook_message">FlightRecorder > Login Fb</string>
     <string name="buttonLogin">Login</string>
     <string name="buttonGraph">Graph</string>
+    <string name="app_id">465265436919636</string>
 </resources>
+
