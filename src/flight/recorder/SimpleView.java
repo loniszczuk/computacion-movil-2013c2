@@ -12,8 +12,9 @@ public class SimpleView extends View {
 	
 	private final TextView altitudeView;
 	private final TextView speedView;
+
 	
-	public final static String EXTRA_MESSAGE = "com.my.app.MESSAGE";
+	//public final static String EXTRA_MESSAGE = "com.my.app.MESSAGE";
 	
 	public SimpleView(Activity a, SimpleModel m) {
 		super(a, null);
@@ -35,12 +36,15 @@ public class SimpleView extends View {
 	}
 
 	public View getButtonOff() {
-		//mostrar mediciones
 		return activity.findViewById(R.id.buttonOff);
 	}
 
 	public View getButtonCall() {
 		return activity.findViewById(R.id.buttonCall);
+	}
+	
+	public View getMsg() {
+		return activity.findViewById(R.id.messageId);
 	}
 
 	public void renderAltitude() {
@@ -53,6 +57,7 @@ public class SimpleView extends View {
 	
 	public void switchButton(){
 		getButtonOn().setVisibility(GONE);
+		getMsg().setVisibility(GONE);
 		getButtonOff().setVisibility(VISIBLE);
 	}
 }

@@ -36,11 +36,16 @@ public class ResultsView extends View {
 
 	
 	public void showMap() {
-        //Google Maps
-		double latitud = -34.5430098;
-		double longitud =-58.4410214;
-		String uri = String.format(Locale.ENGLISH, "geo:%f,%f", latitud, longitud	);
-		Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+        //Open Google Maps
+		double latitude = -34.5430098;
+		double longitude =-58.4410214;
+		String label = "Estas Aquí";
+		String uriBegin = "geo:" + latitude + "," + longitude;//String.format(Locale.ENGLISH, "geo:%f,%f", latitud, longitud	);
+		String query = latitude + "," + longitude + "(" + label + ")";
+		String encodedQuery = Uri.encode(query);
+		String uriString = uriBegin + "?q=" + encodedQuery + "&z=16";
+		Uri uri = Uri.parse(uriString);
+		Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 		activity.startActivity(intent);
 	}
 

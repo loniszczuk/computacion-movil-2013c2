@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Random;
 
 import android.util.Log;
-
 import flight.recorder.SimpleService.Meassure;
 
 
@@ -15,6 +14,7 @@ public class SimpleModel {
 	private Boolean started = Boolean.FALSE;	
 	private List<Double> altitudes = new ArrayList<Double>();
 	private List<Double> speeds = new ArrayList<Double>();
+	
 	
 	public Boolean isStarted() {
 		return this.started;
@@ -61,6 +61,13 @@ public class SimpleModel {
 			for(long i = this.lastUpdate+1000; i < current; i += 1000) {
 //				Log.v("", "for cicle");
 				// for each second between last timestamp and now
+				//for debug -> current difiere mucho de lastUpdate
+				/*if(altitudes.size() == 20){
+					altitudes.clear();
+				}
+				altitudes.add(altitude);
+				*/
+				//end debug
 				altitudes.add(altitude);
 				speeds.add(Double.valueOf(r.nextInt(60)));
 			}

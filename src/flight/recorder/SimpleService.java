@@ -40,7 +40,7 @@ public class SimpleService extends Service implements SensorEventListener {
 		
 		s.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
 		
-		t = new Timer();
+		/*t = new Timer();
 		t.schedule(new TimerTask() {
 			Random r = new Random();
 			
@@ -52,13 +52,13 @@ public class SimpleService extends Service implements SensorEventListener {
 				SimpleService.this.sendNotification(meassure);
 			}
 		}, 0, 1000);
-
+*/
 		return START_STICKY;
 	}
 	
 	@Override
 	public void onDestroy() {
-		t.cancel();
+		//t.cancel();
 		super.onDestroy();
 	}
 	
@@ -74,7 +74,8 @@ public class SimpleService extends Service implements SensorEventListener {
 	@Override
 	public void onSensorChanged(SensorEvent event) {
 		Meassure meassure = new Meassure();
-		meassure.timestamp = event.timestamp;
+		meassure.timestamp = System.currentTimeMillis();
+		
 		meassure.value = event.values[0];
 		sendNotification(meassure);
 	}

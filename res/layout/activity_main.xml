@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:paddingBottom="20dp"
         android:text="@string/message"
         android:textColor="#ffffff"
         tools:context=".MainActivity" />
@@ -39,6 +40,13 @@
         android:layout_below="@id/pressureViewId"
         android:text="@string/initialSpeed"
         android:textColor="#ffffff"
+        tools:context=".MainActivity" />
+    
+   	<TextView
+        android:id="@+id/textUserSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_medium"
         tools:context=".MainActivity" />
     
     <Button android:id="@+id/buttonOn"
@@ -66,9 +74,9 @@
     <Button android:id="@+id/buttonCall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/speedViewId"
+        android:layout_marginTop="50dp"
         android:textColor="#ffffff"
         android:text="@string/buttonCall"
         

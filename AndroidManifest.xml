@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="18"
+        android:minSdkVersion="7"
         android:targetSdkVersion="18" />
     
 	<uses-permission android:name="android.permission.INTERNET" ></uses-permission>
@@ -19,7 +19,9 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="flight.recorder.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" 
+            android:configChanges="orientation|screenSize"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,8 +45,8 @@
                 android:value="flight.recorder.ResultsActivity" />
         </activity>
         <activity
-            android:name="flight.recorder.CallActivity"
-            android:label="@string/title_activity_facebook_message"
+            android:name="flight.recorder.UserSettingActivity" 
+            android:label="@string/title_activity_settings_message"
             android:parentActivityName="flight.recorder.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

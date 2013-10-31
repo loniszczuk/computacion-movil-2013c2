@@ -7,8 +7,10 @@ import java.util.TimerTask;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,11 +21,17 @@ public class SimpleController implements OnClickListener {
 	private final SimpleView view;
 	private final SimpleModel model;
 	private Timer updateGUITimer = new Timer();
+
+	
+	
+	public String phone_number;
+
 	
 	public SimpleController(Activity a, SimpleModel m, SimpleView v) {
 		this.activity = a;
 		this.model = m;
 		this.view = v;
+
 	}
 
 	@Override
@@ -84,7 +92,6 @@ public class SimpleController implements OnClickListener {
 	}
 	
 	public void showResults(){
-		//TODO nueva activity -> mostrar grafico y publicar en fb
 		Intent intent = new Intent(this.activity, ResultsActivity.class);
 		intent.putExtra("ALTITUDES", toArray(this.model.getAltitudes()));
 		intent.putExtra("SPEEDS", toArray(this.model.getSpeeds()));
@@ -94,15 +101,20 @@ public class SimpleController implements OnClickListener {
 	}
 
 	private void call() {
+		
         try {
+    		SharedPreferences Settings = PreferenceManager.getDefaultSharedPreferences(this.activity);
+    		phone_number = Settings.getString("prefUsername", "911");
             Intent callIntent = new Intent(Intent.ACTION_CALL);
-            callIntent.setData(Uri.parse("tel:911"));
+            callIntent.setData(Uri.parse("tel:" + phone_number));
+            System.out.println(phone_number);
             this.activity.startActivity(callIntent);
         } catch (ActivityNotFoundException e) {
-            Log.e("helloandroid dialing example", "Call failed", e);
+            Log.e(" Dialing ", "Call failed", e);
         }
     }
 	
+
 	private double[] toArray(List<Double> altitudes) {
 		double[] ret = new double[altitudes.size()];
 		int i = 0;
