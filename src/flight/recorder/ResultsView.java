@@ -50,10 +50,15 @@ public class ResultsView extends View {
 	}
 
 	
-	public void connectFb(){
-		Intent fb_intent = new Intent(this.activity, FacebookActivity.class);
+	public void share(){
+		//Intent share_intent = new Intent(this.activity, FacebookActivity.class);
 		//Empiezo la nueva activity
-		this.activity.startActivity(fb_intent);
+		//this.activity.startActivity(share_intent);
+		Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+		sharingIntent.setType("text/plain");
+		sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, "New amaizing flight!");
+		sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "just landed :)");
+		this.activity.startActivity(Intent.createChooser(sharingIntent, "Share using"));
 	
 	}
 

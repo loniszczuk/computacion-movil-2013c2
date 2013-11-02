@@ -23,7 +23,7 @@ public class ResultsController implements OnClickListener {
 			this.view.showMap();
 		}else{
 			if (this.view.getButtonFb() == view){
-				this.view.connectFb();
+				this.view.share();
 			}
 		}
 	}
