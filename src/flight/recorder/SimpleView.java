@@ -14,8 +14,6 @@ public class SimpleView extends View {
 	private final TextView speedView;
 
 	
-	//public final static String EXTRA_MESSAGE = "com.my.app.MESSAGE";
-	
 	public SimpleView(Activity a, SimpleModel m) {
 		super(a, null);
 		this.model = m;

@@ -8,9 +8,26 @@
         android:minSdkVersion="7"
         android:targetSdkVersion="18" />
     
+    <permission
+        android:name="flight.recorder.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+ 
+    <!-- Required OpenGL ES 2.0. for Maps V2 -->
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+    
 	<uses-permission android:name="android.permission.INTERNET" ></uses-permission>
 	<uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
-	
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.vogella.android.locationapi.maps.permission.MAPS_RECEIVE" />
+     
+    <!-- Required to show current location -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+     
     <application
         android:debuggable="true" 
         android:allowBackup="true"
@@ -37,14 +54,6 @@
                 android:value="flight.recorder.MainActivity" />
         </activity>
         <activity
-            android:name="flight.recorder.FacebookActivity"
-            android:label="@string/title_activity_facebook_message"
-            android:parentActivityName="flight.recorder.ResultsActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="flight.recorder.ResultsActivity" />
-        </activity>
-        <activity
             android:name="flight.recorder.UserSettingActivity" 
             android:label="@string/title_activity_settings_message"
             android:parentActivityName="flight.recorder.MainActivity" >
@@ -52,10 +61,26 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="flight.recorder.MainActivity" />
         </activity>
+        <activity
+            android:name="flight.recorder.MapActivity" 
+            android:label="@string/title_activity_map_message"
+            android:parentActivityName="flight.recorder.ResultsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="flight.recorder.ResultsActivity" />
+        </activity>
 	    <service
 	        android:name="flight.recorder.SimpleService"
 	        android:label="@string/pressure_service" >
 	    </service>
         
+	   	<!-- Google Maps API Key -->
+		<meta-data
+     		android:name="com.google.android.maps.v2.API_KEY"
+     		android:value="AIzaSyCSB2SwpEUL19OsRi0ypdFrLYLEsAjcIJw" />
+		<meta-data
+    		android:name="com.google.android.gms.version"
+    		android:value="@integer/google_play_services_version" />
+	
     </application>
 </manifest>

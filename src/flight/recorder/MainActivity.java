@@ -82,7 +82,7 @@ public class MainActivity extends Activity{
 		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
 		
-		String upd_phone_number = (String) sharedPrefs.getString("prefUsername", "NULL");
+		String upd_phone_number = (String) sharedPrefs.getString("prefUserCall", "NULL");
 		System.out.println(upd_phone_number);
 	}
 

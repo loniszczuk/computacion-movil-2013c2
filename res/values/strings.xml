@@ -18,10 +18,10 @@
     <string name="buttonLogin">Login</string>
     <string name="buttonGraph">Graph</string>
     <string name="title_activity_settings_message">FlightRecorder > Settings</string>
-    <string name="pref_user_name">Set emergency call</string>
-    <string name="pref_user_name_summary">Set emergency call number</string>
+    <string name="pref_user_call">Set emergency call</string>
+    <string name="pref_user_call_summary">Set emergency call number</string>
     <string name="pref_user_profile">User Settings</string>
-    
+    <string name="title_activity_map_message">FlightRecorder > GoogleMaps</string>
     
     
 </resources>

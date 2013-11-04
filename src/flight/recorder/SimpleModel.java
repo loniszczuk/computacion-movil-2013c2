@@ -59,15 +59,6 @@ public class SimpleModel {
 			Log.v("", "not too old: last " + lastUpdate + " current " + current);
 			Double altitude = fromPressureToAltitude(meassure.value);
 			for(long i = this.lastUpdate+1000; i < current; i += 1000) {
-//				Log.v("", "for cicle");
-				// for each second between last timestamp and now
-				//for debug -> current difiere mucho de lastUpdate
-				/*if(altitudes.size() == 20){
-					altitudes.clear();
-				}
-				altitudes.add(altitude);
-				*/
-				//end debug
 				altitudes.add(altitude);
 				speeds.add(Double.valueOf(r.nextInt(60)));
 			}

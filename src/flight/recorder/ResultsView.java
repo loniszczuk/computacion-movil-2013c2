@@ -36,34 +36,22 @@ public class ResultsView extends View {
 
 	
 	public void showMap() {
-        //Open Google Maps
-		double latitude = -34.5430098;
-		double longitude =-58.4410214;
-		String label = "Estas Aquí";
-		String uriBegin = "geo:" + latitude + "," + longitude;//String.format(Locale.ENGLISH, "geo:%f,%f", latitud, longitud	);
-		String query = latitude + "," + longitude + "(" + label + ")";
-		String encodedQuery = Uri.encode(query);
-		String uriString = uriBegin + "?q=" + encodedQuery + "&z=16";
-		Uri uri = Uri.parse(uriString);
-		Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-		activity.startActivity(intent);
+		
+		Intent intent = new Intent(this.activity, MapActivity.class);
+		//Start new activity
+		this.activity.startActivity(intent);
+	
 	}
 
 	
 	public void share(){
-		//Intent share_intent = new Intent(this.activity, FacebookActivity.class);
-		//Empiezo la nueva activity
-		//this.activity.startActivity(share_intent);
 		Intent sharingIntent = new Intent(Intent.ACTION_SEND);
 		sharingIntent.setType("text/plain");
-		sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, "New amaizing flight!");
+		sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, "New amazing flight!");
 		sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "just landed :)");
 		this.activity.startActivity(Intent.createChooser(sharingIntent, "Share using"));
 	
 	}
 
-	
-
-	
 
 }

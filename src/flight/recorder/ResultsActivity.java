@@ -42,16 +42,14 @@ public class ResultsActivity extends Activity{
         // Set the text view as the activity layout
         setContentView(R.layout.activity_results);
         
-        //String message = intent.getStringExtra(SimpleView.EXTRA_MESSAGE);
 
         // Create the text view
         TextView textView = new TextView(this);
         textView.setTextSize(40);
-        //textView.setText(message);
 
           
         
-        //Generate Altitud Graphic
+        //Generate Altitude Graphic
         GraphViewSeriesStyle styleA = new GraphViewSeriesStyle(Color.rgb(200, 100, 0), 3);
         GraphViewSeries altitudSeries = createSerie(altitudes, styleA);
         GraphView altitudesGraph = new LineGraphView(this, "Altitudes");
@@ -68,8 +66,6 @@ public class ResultsActivity extends Activity{
 		speedsGraph.getGraphViewStyle().setTextSize(15);
 		LinearLayout layoutS = (LinearLayout) findViewById(R.id.graph2);
 		layoutS.addView(speedsGraph);
-//		image = (ImageView) findViewById(R.id.imageView1);
-	//	image.setImageResource(R.drawable.ej_chart);
 
 
         findViewById(R.id.buttonFb).setOnClickListener(controller);

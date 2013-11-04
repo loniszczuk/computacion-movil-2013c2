@@ -95,7 +95,7 @@ public class SimpleController implements OnClickListener {
 		Intent intent = new Intent(this.activity, ResultsActivity.class);
 		intent.putExtra("ALTITUDES", toArray(this.model.getAltitudes()));
 		intent.putExtra("SPEEDS", toArray(this.model.getSpeeds()));
-		//Empiezo la nueva activity
+		//Start new activity
 		this.activity.startActivity(intent);
 		
 	}
@@ -104,7 +104,7 @@ public class SimpleController implements OnClickListener {
 		
         try {
     		SharedPreferences Settings = PreferenceManager.getDefaultSharedPreferences(this.activity);
-    		phone_number = Settings.getString("prefUsername", "911");
+    		phone_number = Settings.getString("prefUserCall", "911");
             Intent callIntent = new Intent(Intent.ACTION_CALL);
             callIntent.setData(Uri.parse("tel:" + phone_number));
             System.out.println(phone_number);
