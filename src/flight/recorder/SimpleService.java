@@ -40,19 +40,6 @@ public class SimpleService extends Service implements SensorEventListener {
 		
 		s.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
 		
-		/*t = new Timer();
-		t.schedule(new TimerTask() {
-			Random r = new Random();
-			
-			@Override
-			public void run() {
-				Meassure meassure = new Meassure();
-				meassure.timestamp = System.currentTimeMillis();
-				meassure.value = r.nextInt(2000);
-				SimpleService.this.sendNotification(meassure);
-			}
-		}, 0, 1000);
-*/
 		return START_STICKY;
 	}
 	
